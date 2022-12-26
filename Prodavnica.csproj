@@ -52,6 +52,18 @@
     <Compile Include="Administracija.Designer.cs">
       <DependentUpon>Administracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodajZaposenog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajZaposenog.Designer.cs">
+      <DependentUpon>DodajZaposenog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PodaciOZaposlenom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PodaciOZaposlenom.Designer.cs">
+      <DependentUpon>PodaciOZaposlenom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prijava.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administracija.resx">
       <DependentUpon>Administracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajZaposenog.resx">
+      <DependentUpon>DodajZaposenog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodaciOZaposlenom.resx">
+      <DependentUpon>PodaciOZaposlenom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prijava.resx">
       <DependentUpon>Prijava.cs</DependentUpon>

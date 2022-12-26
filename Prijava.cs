@@ -13,7 +13,6 @@ namespace Prodavnica
 {
     public partial class Prijava : Form
     {
-        bool postaviPitanje = true;
         public Prijava()
         {
             InitializeComponent();
@@ -27,8 +26,15 @@ namespace Prodavnica
             lozinkaTB.Text = String.Empty;
 
             Korisnik k = Korisnik.Prijava(korisnickoIme, lozinka);
-            if (k == null) return;
-            MessageBox.Show("Zdravo, " + k.Ime + " " + k.Prezime);
+            if (k == null)
+            {
+                korisnickoImeTB.Text = String.Empty;
+                korisnickoImeTB.Focus();
+                return;
+            }
+            
+            korisnickoImeTB.Text = String.Empty;
+
             this.Hide();
             switch(k.Uloga)
             {
@@ -41,17 +47,12 @@ namespace Prodavnica
                 case "magacin":
                     (new Magacin(k)).ShowDialog();
                     break;
-                default:
-                    this.Show();
-                    return;
             }
-            this.postaviPitanje = false;
-            this.Close();
+            this.Show();
         }
 
         private void Prijava_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!this.postaviPitanje) return;
             DialogResult odg = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Izlaz", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (odg == DialogResult.No)
                 e.Cancel = true;

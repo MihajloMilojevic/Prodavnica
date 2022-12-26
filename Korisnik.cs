@@ -12,10 +12,10 @@ namespace Prodavnica
     {
         public static readonly string DATOTEKA = "korisnici.txt";
         private string ime, prezime, korisnickoIme, lozinka, uloga;
-        private int id;
-        private DateTime pocetakUgovora, krajUgovora;
+        private int id, dnevnica;
+        private DateTime datumZaposljenja;
         public Korisnik() { }
-        public Korisnik(int id, string ime, string prezime, string korisnickoIme, string lozinka, string uloga, DateTime pocetakUgovora, DateTime krajUgovora)
+        public Korisnik(int id, string ime, string prezime, string korisnickoIme, string lozinka, string uloga, DateTime datumZaposljenja, int dnevnica)
         {
             this.id = id;
             this.ime = ime;
@@ -23,8 +23,8 @@ namespace Prodavnica
             this.korisnickoIme = korisnickoIme;
             this.lozinka = lozinka;
             this.uloga = uloga;
-            this.pocetakUgovora = pocetakUgovora;
-            this.krajUgovora = krajUgovora;
+            this.datumZaposljenja = datumZaposljenja;
+            this.dnevnica = dnevnica;
         }
         public int ID
         {
@@ -33,30 +33,35 @@ namespace Prodavnica
         public string Ime
         {
             get { return ime; }
+            set { ime = value; }
         }
         public string Prezime
         {
             get { return prezime; }
+            set { prezime = value; }
         }
         public string KorisnickoIme
         {
             get { return korisnickoIme; }
+            set { korisnickoIme = value; }
         }
         public string Uloga
         {
             get { return uloga; }
+            set { uloga = value; }
         }
-        public DateTime PocetakUgovora
+        public DateTime DatumZaposljenja
         {
-            get { return pocetakUgovora; }
+            get { return datumZaposljenja; }
         }
-        public DateTime KrajUgovora
+        public int Dnevnicna
         {
-            get { return krajUgovora; }
+            get { return dnevnica; }
+            set { dnevnica = value; }
         }
         public void Upisi(StreamWriter sw)
         {
-                sw.WriteLine("{0} {1} {2} {3} {4} {5} {6} {7}", this.ID, this.ime, this.prezime, this.korisnickoIme, this.lozinka, this.uloga, this.pocetakUgovora.ToString("dd.MM.yyyy"), this.krajUgovora.ToString("dd.MM.yyyy"));
+                sw.WriteLine("{0} {1} {2} {3} {4} {5} {6} {7}", this.ID, this.ime, this.prezime, this.korisnickoIme, this.lozinka, this.uloga, this.datumZaposljenja.ToString("dd.MM.yyyy"), this.dnevnica);
         }
         public static Korisnik Ucitaj(StreamReader sr)
         {
@@ -69,18 +74,18 @@ namespace Prodavnica
             k.korisnickoIme= podaci[3];
             k.lozinka = podaci[4];
             k.uloga = podaci[5];
-            k.pocetakUgovora = DateTime.ParseExact(podaci[6], "dd.MM.yyyy", null);
-            k.krajUgovora = DateTime.ParseExact(podaci[7], "dd.MM.yyyy", null);
+            k.datumZaposljenja = DateTime.ParseExact(podaci[6], "dd.MM.yyyy", null);
+            k.dnevnica = int.Parse(podaci[7]);
             return k;
         }
-        public static bool DodajNovog(string ime, string prezime, string korisnickoIme, string lozinka, string uloga, DateTime pocetakUgovora, DateTime krajUgovora)
+        public static bool DodajNovog(string ime, string prezime, string korisnickoIme, string lozinka, string uloga, DateTime datumZaposljenja, int dnevnica)
         {
             try
             {
                 Korisnik k = Korisnik.Pronadji(korisnickoIme);
                 if (k != null) throw new Exception("Korisnik već postoji");
 
-                Korisnik kor = new Korisnik(Korisnik.BrojKorisnika() + 1, ime, prezime, korisnickoIme, lozinka, uloga, pocetakUgovora, krajUgovora);
+                Korisnik kor = new Korisnik(Korisnik.PoslednjiID() + 1, ime, prezime, korisnickoIme, lozinka, uloga, datumZaposljenja, dnevnica);
                 StreamWriter sw = new StreamWriter(Korisnik.DATOTEKA, true);
                 kor.Upisi(sw);
                 sw.Close();
@@ -107,17 +112,17 @@ namespace Prodavnica
             sr.Close();
             return null;
         }
-        public static int BrojKorisnika()
+        public static int PoslednjiID()
         {
-            int br = 0;
+            int id = 0;
             StreamReader sr = new StreamReader(Korisnik.DATOTEKA);
             while (!sr.EndOfStream)
             {
-                if(sr.ReadLine() != String.Empty)
-                    br++;
+                Korisnik k = Korisnik.Ucitaj(sr);
+                id = k.id;
             }
             sr.Close();
-            return br;
+            return id;
         }
         public static Korisnik Prijava(string korisnickoIme, string lozinka)
         {
@@ -145,6 +150,28 @@ namespace Prodavnica
             }
             sr.Close();
             return korisnici;
+        }
+        public void Ukloni()
+        {
+            List<Korisnik> svi = Korisnik.SviKorisnici();
+            StreamWriter sw = new StreamWriter(Korisnik.DATOTEKA, false);
+            foreach (Korisnik k in svi)
+            {
+                if (k.id == this.id) continue;
+                k.Upisi(sw);
+            }
+            sw.Close();
+        }
+        public void Sacuvaj()
+        {
+            List<Korisnik> svi = Korisnik.SviKorisnici();
+            StreamWriter sw = new StreamWriter(Korisnik.DATOTEKA, false);
+            foreach(Korisnik k in svi)
+            {
+                if (k.id == this.id) this.Upisi(sw);
+                else k.Upisi(sw);
+            }
+            sw.Close();
         }
     }
 }

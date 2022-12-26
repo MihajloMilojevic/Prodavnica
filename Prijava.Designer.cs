@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Prijava));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.korisnickoImeTB = new System.Windows.Forms.TextBox();
@@ -46,7 +47,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(228, 124);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 23);
+            this.label1.Size = new System.Drawing.Size(182, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Korisničko ime:";
             // 
@@ -61,7 +62,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(258, 204);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 23);
+            this.label2.Size = new System.Drawing.Size(105, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Lozinka:";
             // 
@@ -72,9 +73,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.korisnickoImeTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(170)))), ((int)(((byte)(229)))));
             this.korisnickoImeTB.ForeColor = System.Drawing.Color.White;
-            this.korisnickoImeTB.Location = new System.Drawing.Point(232, 150);
+            this.korisnickoImeTB.Location = new System.Drawing.Point(200, 156);
             this.korisnickoImeTB.Name = "korisnickoImeTB";
-            this.korisnickoImeTB.Size = new System.Drawing.Size(140, 29);
+            this.korisnickoImeTB.Size = new System.Drawing.Size(221, 34);
             this.korisnickoImeTB.TabIndex = 2;
             // 
             // lozinkaTB
@@ -84,10 +85,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lozinkaTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(170)))), ((int)(((byte)(229)))));
             this.lozinkaTB.ForeColor = System.Drawing.Color.White;
-            this.lozinkaTB.Location = new System.Drawing.Point(232, 231);
+            this.lozinkaTB.Location = new System.Drawing.Point(200, 231);
             this.lozinkaTB.Name = "lozinkaTB";
             this.lozinkaTB.PasswordChar = '*';
-            this.lozinkaTB.Size = new System.Drawing.Size(140, 29);
+            this.lozinkaTB.Size = new System.Drawing.Size(221, 34);
             this.lozinkaTB.TabIndex = 3;
             // 
             // prijavaBtn
@@ -96,12 +97,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.prijavaBtn.BackColor = System.Drawing.Color.Transparent;
-            this.prijavaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.prijavaBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.prijavaBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.prijavaBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.prijavaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.prijavaBtn.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prijavaBtn.ForeColor = System.Drawing.Color.White;
-            this.prijavaBtn.Location = new System.Drawing.Point(232, 294);
+            this.prijavaBtn.Location = new System.Drawing.Point(216, 294);
             this.prijavaBtn.Name = "prijavaBtn";
-            this.prijavaBtn.Size = new System.Drawing.Size(140, 40);
+            this.prijavaBtn.Padding = new System.Windows.Forms.Padding(5);
+            this.prijavaBtn.Size = new System.Drawing.Size(178, 63);
             this.prijavaBtn.TabIndex = 4;
             this.prijavaBtn.Text = "Prijavi se";
             this.prijavaBtn.UseVisualStyleBackColor = false;
@@ -109,7 +114,7 @@
             // 
             // Prijava
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(170)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(624, 505);
@@ -120,6 +125,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "Prijava";
