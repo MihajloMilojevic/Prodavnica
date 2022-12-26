@@ -18,9 +18,9 @@ namespace Prodavnica
             if (!File.Exists(Korisnik.DATOTEKA))
             {
                 File.Create(Korisnik.DATOTEKA).Close();
-                Korisnik.DodajNovog("Sara", "Spasojevic", "sara.spasojevic", "Sara123", "admin");
-                Korisnik.DodajNovog("Mihajlo", "Milojevic", "mihajlo.milojevic", "Mihajlo123", "magacin");
-                Korisnik.DodajNovog("Nikola", "Rogonjic", "nikola.rogonjic", "Nikola123", "kasa");
+                Korisnik.DodajNovog("Sara", "Spasojevic", "sara.spasojevic", "Sara123", "admin", new DateTime(2022, 9, 1), new DateTime(2023, 9, 1));
+                Korisnik.DodajNovog("Mihajlo", "Milojevic", "mihajlo.milojevic", "Mihajlo123", "magacin", new DateTime(2022, 9, 2), new DateTime(2023, 9, 2));
+                Korisnik.DodajNovog("Nikola", "Rogonjic", "nikola.rogonjic", "Nikola123", "kasa", new DateTime(2022, 9, 3), new DateTime(2023, 3, 3));
             }
 
         }

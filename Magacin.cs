@@ -23,9 +23,8 @@ namespace Prodavnica
         private void Magacin_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult odg = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Izlaz", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (odg == DialogResult.Yes)
-                Application.Exit();
-            e.Cancel = true;
+            if (odg == DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

@@ -22,9 +22,20 @@ namespace Prodavnica
         private void Administracija_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult odg = MessageBox.Show("Da li ste sigurni da želite da izađete?", "Izlaz", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (odg == DialogResult.Yes)
-                Application.Exit();
-            e.Cancel = true;
+            if (odg == DialogResult.No)
+                e.Cancel = true;
+        }
+        private void PrikaziKorisnike()
+        {
+            List<Korisnik> korisnici = Korisnik.SviKorisnici();
+            tabela.Rows.Clear();
+            foreach (Korisnik k in korisnici)
+                tabela.Rows.Add(k.ID, k.Ime, k.Prezime, k.Uloga, (DateTime.Now - k.PocetakUgovora).Days, (k.KrajUgovora - DateTime.Now).Days);
+        }
+        private void Administracija_Load(object sender, EventArgs e)
+        {
+            tabela.Width = panel1.Width;
+            PrikaziKorisnike();
         }
 
     }
