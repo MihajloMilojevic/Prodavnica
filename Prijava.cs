@@ -28,7 +28,6 @@ namespace Prodavnica
             Korisnik k = Korisnik.Prijava(korisnickoIme, lozinka);
             if (k == null)
             {
-                korisnickoImeTB.Text = String.Empty;
                 korisnickoImeTB.Focus();
                 return;
             }

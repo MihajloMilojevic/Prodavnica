@@ -12,7 +12,6 @@ namespace Prodavnica
 {
     public partial class DodajZaposleog : Form
     {
-        private Korisnik zaposleni;
         private bool zatvoriBezPitanja = false;
         public DodajZaposleog()
         {
@@ -34,7 +33,8 @@ namespace Prodavnica
 
         private void sacuvaj_Click(object sender, EventArgs e)
         {
-            Korisnik.DodajNovog(imeTB.Text, prezimeTB.Text, korisnickoImeTB.Text, lozinkaTB.Text, ulogaCB.SelectedItem.ToString(), datumZaposljavanjaMC.SelectionStart, (int)dnevnicaNUD.Value);
+            bool dodat = Korisnik.DodajNovog(imeTB.Text, prezimeTB.Text, korisnickoImeTB.Text, lozinkaTB.Text, ulogaCB.SelectedItem.ToString(), datumZaposljavanjaMC.SelectionStart, (int)dnevnicaNUD.Value);
+            if (!dodat) return;
             MessageBox.Show("Korisnik uspešno kreiran");
             zatvoriBezPitanja = true;
             this.Close();

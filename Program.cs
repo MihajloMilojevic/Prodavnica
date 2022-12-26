@@ -13,6 +13,15 @@ namespace Prodavnica
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        static void Main()
+        {
+            
+            ProveriFajlove();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Prijava());
+        }
+        [STAThread]
         static void ProveriFajlove()
         {
             if (!File.Exists(Korisnik.DATOTEKA))
@@ -22,14 +31,16 @@ namespace Prodavnica
                 Korisnik.DodajNovog("Mihajlo", "Milojevic", "mihajlo.milojevic", "Mihajlo123", "magacin", new DateTime(2022, 9, 2), 1750);
                 Korisnik.DodajNovog("Nikola", "Rogonjic", "nikola.rogonjic", "Nikola123", "kasa", new DateTime(2022, 9, 3), 1250);
             }
+            if (!Directory.Exists(Proizvod.FOLDER))
+            {
+                Directory.CreateDirectory(Proizvod.FOLDER);
+            }
+            if (!File.Exists(Proizvod.DATOTEKA))
+            {
+                File.Create(Proizvod.DATOTEKA).Close();
 
-        }
-        static void Main()
-        {
-            ProveriFajlove();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Prijava());
+            }
+
         }
     }
 }
