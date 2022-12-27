@@ -41,7 +41,7 @@ namespace Prodavnica
         private void tabela_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex > proizvodi.Count) return;
-            //new PodaciOZaposlenom(proizvodi[e.RowIndex]).ShowDialog();
+            new PodaciOProizvodu(proizvodi[e.RowIndex]).ShowDialog();
             PrikaziProizvode();
         }
 

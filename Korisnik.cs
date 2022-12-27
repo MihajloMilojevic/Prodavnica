@@ -82,6 +82,12 @@ namespace Prodavnica
         {
             try
             {
+                if (ime == "") throw new Exception("Ime je obavezno");
+                if (prezime == "") throw new Exception("Prezime je obavezno");
+                if (korisnickoIme == "") throw new Exception("Korisničko ime je obavezno");
+                if (lozinka == "") throw new Exception("Lozinka je obavezna");
+                if (uloga == "") throw new Exception("Uloga je obavezna");
+                if (dnevnica == 0) throw new Exception("Dnevnica je obavezna");
                 Korisnik k = Korisnik.Pronadji(korisnickoIme);
                 if (k != null) throw new Exception("Korisnik već postoji");
 

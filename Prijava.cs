@@ -40,9 +40,6 @@ namespace Prodavnica
                 case "admin":
                     (new Administracija(k)).ShowDialog();
                     break;
-                case "kasa":
-                    (new Kasa(k)).ShowDialog();
-                    break;
                 case "magacin":
                     (new Magacin(k)).ShowDialog();
                     break;

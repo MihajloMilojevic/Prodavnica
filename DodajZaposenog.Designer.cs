@@ -97,8 +97,7 @@
             this.ulogaCB.FormattingEnabled = true;
             this.ulogaCB.Items.AddRange(new object[] {
             "admin",
-            "magacin",
-            "kasa"});
+            "magacin"});
             this.ulogaCB.Location = new System.Drawing.Point(242, 172);
             this.ulogaCB.Name = "ulogaCB";
             this.ulogaCB.Size = new System.Drawing.Size(262, 37);

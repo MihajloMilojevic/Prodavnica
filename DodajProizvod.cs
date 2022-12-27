@@ -13,7 +13,7 @@ namespace Prodavnica
     public partial class DodajProizvod : Form
     {
         private bool zatvoriBezPitanja = false;
-        private Proizvod proizvod = new Proizvod();
+        private string slika;
         public DodajProizvod()
         {
             InitializeComponent();
@@ -34,15 +34,19 @@ namespace Prodavnica
 
         private void sacuvaj_Click(object sender, EventArgs e)
         {
-            
+            bool dodat = Proizvod.DodajNov(nazivTB.Text, slika, (int)kolicinaNUD.Value, (double)cenaNUD.Value);
+            if (!dodat) return;
+            MessageBox.Show("Proizvod uspešno dodat");
+            zatvoriBezPitanja = true;
+            this.Close();
         }
 
         private void odaberiSliku_Click(object sender, EventArgs e)
         {
             OpenFileDialog dijalog = new OpenFileDialog();
             if (dijalog.ShowDialog() != DialogResult.OK) return;
-            proizvod.Slika = dijalog.FileName;
-            slikaPrikaz.Image = Image.FromFile(proizvod.Slika);
+            slika = dijalog.FileName;
+            slikaPrikaz.Image = Image.FromFile(slika);
             slikaPrikaz.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }

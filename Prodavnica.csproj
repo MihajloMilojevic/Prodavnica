@@ -70,6 +70,12 @@
     <Compile Include="DodajZaposenog.Designer.cs">
       <DependentUpon>DodajZaposenog.cs</DependentUpon>
     </Compile>
+    <Compile Include="PodaciOProizvodu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PodaciOProizvodu.Designer.cs">
+      <DependentUpon>PodaciOProizvodu.cs</DependentUpon>
+    </Compile>
     <Compile Include="PodaciOZaposlenom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,12 +87,6 @@
     </Compile>
     <Compile Include="Prijava.Designer.cs">
       <DependentUpon>Prijava.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Kasa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Kasa.Designer.cs">
-      <DependentUpon>Kasa.cs</DependentUpon>
     </Compile>
     <Compile Include="Korisnik.cs" />
     <Compile Include="Program.cs" />
@@ -104,14 +104,14 @@
     <EmbeddedResource Include="DodajZaposenog.resx">
       <DependentUpon>DodajZaposenog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PodaciOProizvodu.resx">
+      <DependentUpon>PodaciOProizvodu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PodaciOZaposlenom.resx">
       <DependentUpon>PodaciOZaposlenom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prijava.resx">
       <DependentUpon>Prijava.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Kasa.resx">
-      <DependentUpon>Kasa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

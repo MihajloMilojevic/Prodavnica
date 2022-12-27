@@ -116,6 +116,10 @@ namespace Prodavnica
         {
             try
             {
+                if (naziv == "") throw new Exception("Naziv je obavezan");
+                if (slika == "") throw new Exception("Slika je obavezna");
+                if (kolicina == 0) throw new Exception("Količina je obavezna");
+                if (cena == 0) throw new Exception("Cena je obavezna");
                 List<Proizvod> svi = Proizvod.SviProizvodi();
                 foreach(Proizvod pr in svi) if (pr.naziv == naziv) throw new Exception("Proizvod već postoji");
                 string putanja = Proizvod.FOLDER + @"\" + naziv + "." + slika.Split('.').Last();

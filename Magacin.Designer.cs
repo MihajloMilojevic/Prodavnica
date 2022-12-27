@@ -195,7 +195,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MinimumSize = new System.Drawing.Size(778, 411);
             this.Name = "Magacin";
-            this.Text = "Administracija";
+            this.Text = "Magacin";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Magacin_FormClosing);
             this.Load += new System.EventHandler(this.Magacin_Load);
             this.footer.ResumeLayout(false);

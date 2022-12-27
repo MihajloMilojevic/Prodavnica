@@ -33,6 +33,11 @@ namespace Prodavnica
 
         private void sacuvaj_Click(object sender, EventArgs e)
         {
+            if(ulogaCB.SelectedIndex < 0)
+            {
+                MessageBox.Show("Uloga je obavezna", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool dodat = Korisnik.DodajNovog(imeTB.Text, prezimeTB.Text, korisnickoImeTB.Text, lozinkaTB.Text, ulogaCB.SelectedItem.ToString(), datumZaposljavanjaMC.SelectionStart, (int)dnevnicaNUD.Value);
             if (!dodat) return;
             MessageBox.Show("Korisnik uspešno kreiran");
