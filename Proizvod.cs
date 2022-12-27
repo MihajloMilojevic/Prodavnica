@@ -46,6 +46,7 @@ namespace Prodavnica
         public string Slika
         {
             get { return slika; }
+            set { slika = value; }
         }
         public void Upisi(StreamWriter sw)
         {
